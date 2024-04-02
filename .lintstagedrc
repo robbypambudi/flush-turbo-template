@@ -1,0 +1,5 @@
+{
+  "*.{js,ts,tsx}": ["pnpm run format:fix"],
+  "*.json": ["pnpm run format:fix"],
+  "*.yml": ["pnpm run format:fix"]
+}

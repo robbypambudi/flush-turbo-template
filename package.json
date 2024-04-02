@@ -5,11 +5,16 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format:check": "prettier . --ignore-path .gitignore --check",
+    "format:fix": "prettier . --ignore-path .gitignore --write",
+    "prepare": "husky",
+    "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "husky": "^9.0.11",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },
