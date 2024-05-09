@@ -1,12 +1,10 @@
 {
   "name": "@flush/ui",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "exports": {
     "./button": "./src/components/button/index.ts",
     "./link": "./src/components/link/index.ts",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx",
     "./lib": "./src/lib/index.ts"
   },
   "scripts": {
