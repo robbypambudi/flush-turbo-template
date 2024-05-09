@@ -4,6 +4,7 @@
   "private": true,
   "exports": {
     "./button": "./src/components/button/index.ts",
+    "./link": "./src/components/link/index.ts",
     "./card": "./src/card.tsx",
     "./code": "./src/code.tsx",
     "./lib": "./src/lib/index.ts"
@@ -33,6 +34,7 @@
     "lodash.get": "^4.4.2",
     "lucide-react": "^0.364.0",
     "mime-types": "^2.1.35",
+    "next": "^14.2.3",
     "object-to-formdata": "^4.5.1",
     "query-string": "^8.1.0",
     "react-dropzone": "^14.2.3",
