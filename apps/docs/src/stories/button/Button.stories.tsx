@@ -7,7 +7,6 @@ type ButtonSizes = keyof typeof ButtonStyle.sizes;
 const variants = Object.keys(ButtonStyle.variants) as ButtonVariants[];
 const sizes = Object.keys(ButtonStyle.sizes) as ButtonSizes[];
 
-// eslint-disable-next-line storybook/story-exports
 const meta = {
   title: 'Component/Button',
   component: Button,

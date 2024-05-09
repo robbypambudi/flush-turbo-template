@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   extends: [
-    '@shared/eslint-config',
+    '@flush/eslint-config/docs',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
