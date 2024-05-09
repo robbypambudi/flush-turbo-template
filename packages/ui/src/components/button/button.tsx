@@ -4,70 +4,18 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { forwardRef } from 'react';
 import { LucideIcon, RefreshCwIcon } from 'lucide-react';
 import { cn } from '../../types/helper';
+import { ButtonStyle } from './style';
 
-const buttonVariants = cva(
-  [
-    'inline-flex items-center justify-center rounded-md',
-    'font-medium ring-offset-background transition-colors',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-    'focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
-  ],
-  {
-    variants: {
-      variant: {
-        primary: [
-          'bg-primary-500 text-white hover:bg-primary-600',
-          'border border-primary-600',
-          'active:bg-primary-700 active:border-primary-700',
-          'focus-visible:ring-primary-400 focus-visible:border-primary-700',
-          'disabled:bg-primary-400 disabled:border-primary-400',
-        ],
-        secondary: [
-          'bg-secondary-600 text-white hover:bg-secondary-700',
-          'border border-secondary-700',
-          'active:bg-secondary-800 active:border-secondary-800',
-          'focus-visible:ring-secondary-400 focus-visible:border-secondary-800',
-          'disabled:bg-secondary-400 disabled:border-secondary-400',
-        ],
-        warning: [
-          'bg-yellow-600 text-white hover:bg-yellow-700',
-          'border border-yellow-700',
-          'active:bg-yellow-800 active:border-yellow-800',
-          'focus-visible:ring-yellow-400 focus-visible:border-yellow-800',
-          'disabled:bg-yellow-400 disabled:border-yelllow-400',
-        ],
-        danger: [
-          'bg-red-500 text-white hover:bg-red-600',
-          'border border-red-600',
-          'active:bg-red-700 active:border-red-700',
-          'focus-visible:ring-red-400 focus-visible:border-red-700',
-          'disabled:bg-red-400 disabled:border-red-400',
-        ],
-        outline: [
-          'text-typo',
-          'border border-gray-300',
-          'active:bg-typo-divider disabled:bg-typo-divider',
-          'hover:bg-light focus-visible:ring-primary-400',
-        ],
-        ghost: [
-          'text-primary-500',
-          'shadow-none',
-          'hover:bg-primary-50 focus-visible:ring-primary-400',
-          'active:bg-primary-100 disabled:bg-primary-100',
-        ],
-      },
-      size: {
-        base: 'h-10 px-4 py-2',
-        sm: 'h-9 rounded-md px-3 text-sm',
-        lg: 'h-11 rounded-md px-8',
-      },
-    },
-    defaultVariants: {
-      variant: 'primary',
-      size: 'base',
-    },
+const buttonVariants = cva(ButtonStyle.base, {
+  variants: {
+    variant: ButtonStyle.variants,
+    size: ButtonStyle.sizes,
   },
-);
+  defaultVariants: {
+    variant: 'primary',
+    size: 'md',
+  },
+});
 
 export type ButtonProps = {
   isLoading?: boolean;
@@ -85,7 +33,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       children,
       variant = 'primary',
-      size = 'base',
+      size = 'md',
       isLoading,
       leftIcon: LeftIcon,
       rightIcon: RightIcon,
@@ -100,7 +48,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn([
           buttonVariants({ variant, size, className }),
           isLoading &&
-            'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
+            'relative text-transparent transition-none hover:text-transparent cursor-wait disabled:cursor-disabled',
         ])}
         ref={ref}
         type='button'
@@ -129,15 +77,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {LeftIcon ? (
           <div
             className={cn([
-              size === 'lg' && 'mr-1',
-              size === 'base' && 'mr-1',
+              size === 'lg' && 'mr-2.5',
+              size === 'md' && 'mr-2',
               size === 'sm' && 'mr-1.5',
             ])}
           >
             <LeftIcon
               className={cn(
                 [
-                  size === 'base' && 'md:text-lg text-md',
+                  size === 'lg' && 'md:text-xl text-lg',
+                  size === 'md' && 'md:text-lg text-md',
                   size === 'sm' && 'md:text-md text-sm',
                 ],
                 classNames?.leftIcon,
@@ -150,15 +99,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {RightIcon ? (
           <div
             className={cn([
-              size === 'lg' && 'ml-1',
-              size === 'base' && 'ml-1',
+              size === 'lg' && 'ml-2.5',
+              size === 'md' && 'ml-2',
               size === 'sm' && 'ml-1.5',
             ])}
           >
             <RightIcon
               className={cn(
                 [
-                  size === 'base' && 'text-md md:text-md',
+                  size === 'lg' && 'md:text-xl text-lg',
+                  size === 'md' && 'md:text-lg text-md',
                   size === 'sm' && 'md:text-md text-sm',
                 ],
                 classNames?.rightIcon,
@@ -172,4 +122,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 
-export default Button;
+export { Button, buttonVariants, ButtonStyle };
