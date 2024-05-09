@@ -1,7 +1,6 @@
+import { Paths } from '@/types/helper';
 import get from 'lodash.get';
 import { lookup } from 'mime-types';
-import { Paths } from '../types';
-
 /**
  * Validation for exact length
  * @param length exact string length

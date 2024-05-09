@@ -90,6 +90,9 @@ importers:
 
   apps/frontsite:
     dependencies:
+      '@flush/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
       next:
         specifier: 14.1.4
         version: 14.1.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -217,7 +220,7 @@ importers:
         specifier: ^14.2.3
         version: 14.2.3(react@18.2.0)
       tailwind-merge:
-        specifier: ^2.0.0
+        specifier: ^2.2.2
         version: 2.2.2
     devDependencies:
       '@flush/eslint-config':

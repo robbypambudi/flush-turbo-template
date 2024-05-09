@@ -1,3 +1,6 @@
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
 export type ExtractProps<T> = T extends React.ComponentType<infer P> ? P : T;
 export type Merge<P, T> = Omit<P, keyof T> & T;
 export type Entries<T> = {
@@ -25,3 +28,7 @@ type Join<K, P> = K extends string | number
   : never;
 
 type Prev = [never, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ...0[]];
+
+export const cn = (...inputs: ClassValue[]) => {
+  return twMerge(clsx(inputs));
+};

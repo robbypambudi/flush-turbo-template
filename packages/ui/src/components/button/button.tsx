@@ -1,12 +1,13 @@
 'use client';
 
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@sppn/shared/lib';
 import { forwardRef } from 'react';
 import { LucideIcon, RefreshCwIcon } from 'lucide-react';
+import clsx from 'clsx';
+import { cn } from '../../types/helper';
 
 const buttonVariants = cva(
-  cn(
+  clsx(
     'inline-flex items-center justify-center rounded-md',
     'font-medium ring-offset-background transition-colors',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
