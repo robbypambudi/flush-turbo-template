@@ -5,6 +5,7 @@ export default {
   mode: 'jit',
   content: [
     './src/**/*.{js,jsx,ts,tsx}',
+    './src/stories/**/*.{ts,tsx}',
     '../../packages/ui/src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {

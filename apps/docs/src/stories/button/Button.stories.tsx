@@ -9,11 +9,11 @@ const sizes = Object.keys(ButtonStyle.sizes) as ButtonSizes[];
 
 // eslint-disable-next-line storybook/story-exports
 const meta = {
-  title: 'Atoms/Button',
+  title: 'Component/Button',
   component: Button,
   argTypes: {
     variant: {
-      description: 'Defines the variant of the button',
+      description: 'Defines the visual style of the button',
       table: {
         type: { summary: variants.join('|') },
         defaultValue: { summary: 'default' },
