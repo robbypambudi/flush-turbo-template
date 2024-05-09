@@ -139,7 +139,7 @@ export const Default: Story = {
     disabled,
   }) => {
     return (
-      <>
+      <div className='layout my-8'>
         {variants.map((variant) => (
           <div className='flex items-baseline space-x-2' key={variant}>
             <div className='w-[100px] text-sm text-slate-500'>{variant}</div>
@@ -182,7 +182,7 @@ export const Default: Story = {
             </div>
           </div>
         ))}
-      </>
+      </div>
     );
   },
 };
