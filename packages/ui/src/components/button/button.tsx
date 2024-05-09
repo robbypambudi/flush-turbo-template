@@ -10,6 +10,7 @@ const buttonVariants = cva(ButtonStyle.base, {
   variants: {
     variant: ButtonStyle.variants,
     size: ButtonStyle.sizes,
+    isLoading: ButtonStyle.isLoading,
   },
   defaultVariants: {
     variant: 'primary',
@@ -46,9 +47,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         className={cn([
-          buttonVariants({ variant, size, className }),
-          isLoading &&
-            'relative text-transparent transition-none hover:text-transparent cursor-wait disabled:cursor-disabled',
+          buttonVariants({ variant, size, className, isLoading }),
         ])}
         ref={ref}
         type='button'

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button, ButtonStyle } from '@flush/ui/button';
-import { CheckCircle, RefreshCwIcon } from 'lucide-react';
+import { ButtonStyle, IconButton } from '@flush/ui/button';
+import { CheckCircle } from 'lucide-react';
 
 type ButtonVariants = keyof typeof ButtonStyle.variants;
 type ButtonSizes = keyof typeof ButtonStyle.sizes;
@@ -8,9 +8,8 @@ const variants = Object.keys(ButtonStyle.variants) as ButtonVariants[];
 const sizes = Object.keys(ButtonStyle.sizes) as ButtonSizes[];
 
 const meta = {
-  title: 'Component/Button',
-  component: Button,
-  tags: ['autodocs'],
+  title: 'Component/Icon Button',
+  component: IconButton,
   argTypes: {
     variant: {
       description: 'Defines the visual style of the button',
@@ -30,45 +29,20 @@ const meta = {
       control: 'select',
       options: sizes,
     },
-    children: {
-      description:
-        'Children components, usually text or an icon, that will be rendered inside the button',
-      table: {
-        defaultValue: { summary: 'Button' },
-      },
-    },
-    leftIcon: {
-      description: 'Icon to be rendered on the left side of the button',
+    icon: {
+      description: 'Icon to be rendered inside the button',
       table: {
         category: 'Icon',
         type: { summary: 'LucideIcon' },
         defaultValue: { summary: 'Icon' },
       },
       control: 'select',
-      options: ['None', 'CheckCircle', 'RefreshCwIcon'],
+      options: ['NULL', 'CheckCircle'],
       mapping: {
-        None: undefined,
+        NULL: undefined,
         CheckCircle: CheckCircle,
-        RefreshCwIcon: RefreshCwIcon,
       },
     },
-
-    rightIcon: {
-      description: 'Icon to be rendered on the right side of the button',
-      table: {
-        category: 'Icon',
-        type: { summary: 'LucideIcon' },
-        defaultValue: { summary: 'Icon' },
-      },
-      control: 'select',
-      options: ['None', 'CheckCircle', 'RefreshCwIcon'],
-      mapping: {
-        None: undefined,
-        CheckCircle: CheckCircle,
-        RefreshCwIcon: RefreshCwIcon,
-      },
-    },
-
     className: {
       description: 'Override or extend the styles applied to the component',
       control: 'text',
@@ -77,17 +51,6 @@ const meta = {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
       },
-    },
-    classNames: {
-      description: 'Override or extend the styles applied to the icons',
-      table: {
-        category: 'Override/extend',
-        type: { summary: 'object' },
-        defaultValue: {
-          summary: '{ leftIcon: string, rightIcon: string }',
-        },
-      },
-      control: 'object',
     },
 
     isLoading: {
@@ -109,7 +72,7 @@ const meta = {
       control: 'boolean',
     },
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof IconButton>;
 
 export default meta;
 
@@ -117,68 +80,41 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    variant: 'primary',
-    children: 'Icon Button',
     className: '',
-    classNames: {
-      leftIcon: '',
-      rightIcon: '',
-    },
-    leftIcon: undefined,
-    rightIcon: undefined,
+    icon: CheckCircle,
     isLoading: false,
     disabled: false,
   },
-  render: ({
-    children,
-    className,
-    classNames,
-    leftIcon,
-    rightIcon,
-    isLoading,
-    disabled,
-  }) => {
+  render: ({ className, icon: Icon, isLoading, disabled }) => {
     return (
       <div className='layout my-8'>
         {variants.map((variant) => (
           <div className='flex items-baseline space-x-2' key={variant}>
             <div className='w-[100px] text-sm text-slate-500'>{variant}</div>
             <div className='mb-4 flex items-center space-x-2'>
-              <Button
+              <IconButton
                 variant={variant}
-                leftIcon={leftIcon}
-                rightIcon={rightIcon}
                 size='sm'
+                icon={Icon}
                 className={className}
-                classNames={classNames}
                 isLoading={isLoading}
                 disabled={disabled}
-              >
-                {children}
-              </Button>
-              <Button
+              />
+              <IconButton
+                icon={Icon}
                 variant={variant}
                 className={className}
-                classNames={classNames}
-                leftIcon={leftIcon}
-                rightIcon={rightIcon}
                 isLoading={isLoading}
                 disabled={disabled}
-              >
-                {children} - MD
-              </Button>
-              <Button
+              />
+              <IconButton
+                icon={Icon}
                 variant={variant}
                 size='lg'
                 className={className}
-                classNames={classNames}
-                leftIcon={leftIcon}
-                rightIcon={rightIcon}
                 isLoading={isLoading}
                 disabled={disabled}
-              >
-                {children} - LG
-              </Button>
+              />
             </div>
           </div>
         ))}
