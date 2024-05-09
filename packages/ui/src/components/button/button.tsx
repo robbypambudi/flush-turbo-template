@@ -13,7 +13,7 @@ const buttonVariants = cva(ButtonStyle.base, {
   },
   defaultVariants: {
     variant: 'primary',
-    size: 'base',
+    size: 'md',
   },
 });
 
@@ -33,7 +33,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       children,
       variant = 'primary',
-      size = 'base',
+      size = 'md',
       isLoading,
       leftIcon: LeftIcon,
       rightIcon: RightIcon,
@@ -48,7 +48,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn([
           buttonVariants({ variant, size, className }),
           isLoading &&
-            'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
+            'relative text-transparent transition-none hover:text-transparent cursor-wait disabled:cursor-disabled',
         ])}
         ref={ref}
         type='button'
@@ -77,15 +77,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {LeftIcon ? (
           <div
             className={cn([
-              size === 'lg' && 'mr-1',
-              size === 'base' && 'mr-1',
+              size === 'lg' && 'mr-2.5',
+              size === 'md' && 'mr-2',
               size === 'sm' && 'mr-1.5',
             ])}
           >
             <LeftIcon
               className={cn(
                 [
-                  size === 'base' && 'md:text-lg text-md',
+                  size === 'lg' && 'md:text-xl text-lg',
+                  size === 'md' && 'md:text-lg text-md',
                   size === 'sm' && 'md:text-md text-sm',
                 ],
                 classNames?.leftIcon,
@@ -98,15 +99,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {RightIcon ? (
           <div
             className={cn([
-              size === 'lg' && 'ml-1',
-              size === 'base' && 'ml-1',
+              size === 'lg' && 'ml-2.5',
+              size === 'md' && 'ml-2',
               size === 'sm' && 'ml-1.5',
             ])}
           >
             <RightIcon
               className={cn(
                 [
-                  size === 'base' && 'text-md md:text-md',
+                  size === 'lg' && 'md:text-xl text-lg',
+                  size === 'md' && 'md:text-lg text-md',
                   size === 'sm' && 'md:text-md text-sm',
                 ],
                 classNames?.rightIcon,
