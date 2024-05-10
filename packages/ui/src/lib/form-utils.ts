@@ -1,4 +1,4 @@
-import { Paths } from '@/types/helper';
+import { Paths } from '../types/helper';
 import get from 'lodash.get';
 import { lookup } from 'mime-types';
 /**
