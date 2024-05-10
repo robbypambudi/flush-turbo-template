@@ -9,7 +9,6 @@ export default function Home() {
         Welcome to your new single-spa application, built with ❤️ by the
         single-spa community.
       </p>
-      <ButtonLink href='/button'>Hallo</ButtonLink>
     </main>
   );
 }
