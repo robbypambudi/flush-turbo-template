@@ -9,16 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@flush/ui": "workspace:^",
+    "@flush/ui": "workspace:*",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@flush/eslint-config": "workspace:*",
     "@flush/tailwind-config": "workspace:^",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@flush/typescript-config": "workspace:*",
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.2.61",
+    "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",

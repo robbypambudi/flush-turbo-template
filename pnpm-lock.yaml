@@ -182,7 +182,7 @@ importers:
   apps/frontsite:
     dependencies:
       '@flush/ui':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/ui
       next:
         specifier: 14.1.4
@@ -194,18 +194,24 @@ importers:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@flush/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
       '@flush/tailwind-config':
         specifier: workspace:^
         version: link:../../packages/tailwind-config
+      '@flush/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/node':
-        specifier: ^20
+        specifier: ^20.11.24
         version: 20.11.24
       '@types/react':
-        specifier: ^18
-        version: 18.2.61
+        specifier: ^18.2.61
+        version: 18.3.1
       '@types/react-dom':
-        specifier: ^18
-        version: 18.2.19
+        specifier: ^18.2.19
+        version: 18.3.0
       autoprefixer:
         specifier: ^10.0.1
         version: 10.4.19(postcss@8.4.31)
