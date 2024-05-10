@@ -40,3 +40,6 @@ yarn-error.log*
 
 # changelog
 CHANGELOG.md
+
+# Pnpm Lock
+pnpm-lock.yaml

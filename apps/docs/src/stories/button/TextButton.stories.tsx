@@ -7,7 +7,7 @@ const variants = Object.keys(ButtonStyle.variants) as ButtonVariants[];
 const sizes = Object.keys(ButtonStyle.sizes) as ButtonSizes[];
 
 const meta = {
-  title: 'Component/Text Button',
+  title: 'Component/Button/Text',
   component: TextButton,
   argTypes: {
     variant: {
@@ -63,7 +63,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Text: Story = {
   args: {
     className: '',
     isLoading: false,
