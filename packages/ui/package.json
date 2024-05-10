@@ -8,7 +8,8 @@
     "./lib": "./src/lib/index.ts"
   },
   "scripts": {
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@flush/eslint-config": "workspace:*",
