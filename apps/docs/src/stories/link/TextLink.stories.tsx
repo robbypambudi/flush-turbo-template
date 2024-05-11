@@ -1,14 +1,21 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ButtonStyle, TextButton } from '@flush/ui/button';
+import { TextLink } from '@flush/ui/link';
+import { type ExtractProps } from '@flush/ui/types';
 
-type ButtonVariants = keyof typeof ButtonStyle.variants;
-type ButtonSizes = keyof typeof ButtonStyle.sizes;
-const variants = Object.keys(ButtonStyle.variants) as ButtonVariants[];
-const sizes = Object.keys(ButtonStyle.sizes) as ButtonSizes[];
+import type { Meta, StoryObj } from '@storybook/react';
+
+type TextButtonLinkVariants = ExtractProps<typeof TextLink>['variant'];
+type TextButtonLinkSizes = ExtractProps<typeof TextLink>['size'];
+const variants = [
+  'primary',
+  'secondary',
+  'danger',
+  'warning',
+] as TextButtonLinkVariants[];
+const sizes = ['sm', 'md', 'lg'] as TextButtonLinkSizes[];
 
 const meta = {
-  title: 'Component/Button/Text',
-  component: TextButton,
+  title: 'Component/Link/Text',
+  component: TextLink,
   argTypes: {
     variant: {
       description: 'Defines the visual style of the button',
@@ -28,6 +35,14 @@ const meta = {
       control: 'select',
       options: sizes,
     },
+    children: {
+      description:
+        'Children components, usually text or an icon, that will be rendered inside the button',
+      table: {
+        defaultValue: { summary: 'Button' },
+      },
+    },
+
     className: {
       description: 'Override or extend the styles applied to the component',
       control: 'text',
@@ -38,26 +53,16 @@ const meta = {
       },
     },
 
-    isLoading: {
-      description: 'Defines if the button is in a loading state',
+    href: {
+      description: 'The URL that the hyperlink points to',
       table: {
-        category: 'State',
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
+        category: 'Link',
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
       },
-      control: 'boolean',
-    },
-    disabled: {
-      description: 'Defines if the button is disabled',
-      table: {
-        category: 'State',
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-      },
-      control: 'boolean',
     },
   },
-} satisfies Meta<typeof TextButton>;
+} satisfies Meta<typeof TextLink>;
 
 export default meta;
 
@@ -65,44 +70,38 @@ type Story = StoryObj<typeof meta>;
 
 export const Text: Story = {
   args: {
+    variant: 'primary',
+    children: 'Icon Button',
     className: '',
-    isLoading: false,
-    disabled: false,
-    children: 'Text Button',
+
+    href: '#',
   },
-  render: ({ className, isLoading, disabled, children }) => {
+  render: ({ children, className, href }) => {
     return (
       <div className='layout my-8'>
         {variants.map((variant) => (
           <div className='flex items-baseline space-x-2' key={variant}>
             <div className='w-[100px] text-sm text-slate-500'>{variant}</div>
             <div className='mb-4 flex items-center space-x-2'>
-              <TextButton
+              <TextLink
+                href={href}
                 variant={variant}
                 size='sm'
                 className={className}
-                isLoading={isLoading}
-                disabled={disabled}
               >
                 {children}
-              </TextButton>
-              <TextButton
-                variant={variant}
-                className={className}
-                isLoading={isLoading}
-                disabled={disabled}
-              >
-                {children}
-              </TextButton>
-              <TextButton
+              </TextLink>
+              <TextLink href={href} variant={variant}>
+                {children} - MD
+              </TextLink>
+              <TextLink
+                href={href}
                 variant={variant}
                 size='lg'
                 className={className}
-                isLoading={isLoading}
-                disabled={disabled}
               >
-                {children}
-              </TextButton>
+                {children} - LG
+              </TextLink>
             </div>
           </div>
         ))}

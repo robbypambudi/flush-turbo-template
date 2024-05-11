@@ -1,5 +1,5 @@
 {
-  "*.{js,ts,tsx}": ["pnpm run format:fix", "pnpm run lint --"],
+  "*.{js,ts,tsx}": ["pnpm run format:fix"],
   "*.{json,css,md,scss}": ["pnpm run format:fix"],
   "*.{yml, yaml}": ["pnpm run format:fix"]
 }

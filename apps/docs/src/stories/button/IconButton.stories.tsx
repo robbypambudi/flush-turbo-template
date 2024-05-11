@@ -8,7 +8,7 @@ const variants = Object.keys(ButtonStyle.variants) as ButtonVariants[];
 const sizes = Object.keys(ButtonStyle.sizes) as ButtonSizes[];
 
 const meta = {
-  title: 'Component/Icon Button',
+  title: 'Component/Button/Icon',
   component: IconButton,
   argTypes: {
     variant: {
@@ -78,7 +78,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Icon: Story = {
   args: {
     className: '',
     icon: CheckCircle,
