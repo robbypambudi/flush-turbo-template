@@ -22,6 +22,22 @@ export const LinkStyle = {
       'border border-secondary-600',
       'disabled:bg-secondary-400',
     ],
+    danger: [
+      'bg-red-500 text-white',
+      'border border-red-600',
+      'hover:bg-red-600 hover:text-white',
+      'active:bg-red-700',
+      'disabled:bg-red-700',
+      'focus-visible:ring-red-400',
+    ],
+    warning: [
+      'bg-amber-500 text-white',
+      'border border-amber-500',
+      'hover:bg-amber-600 hover:text-white',
+      'active:bg-amber-700',
+      'disabled:bg-amber-700',
+      'focus-visible:ring-amber-400',
+    ],
     outline: [
       'text-typo',
       'border border-gray-300',
@@ -30,7 +46,7 @@ export const LinkStyle = {
     ],
     ghost: [
       'text-primary-500',
-      'shadow-none',
+      '!shadow-none',
       'hover:bg-primary-50 focus-visible:ring-primary-400',
       'active:bg-primary-100 disabled:bg-primary-100',
     ],

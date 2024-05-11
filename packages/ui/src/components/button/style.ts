@@ -21,9 +21,9 @@ export const ButtonStyle = {
       'disabled:bg-secondary-400 disabled:border-secondary-400',
     ],
     warning: [
-      'bg-yellow-600 text-white hover:bg-yellow-700',
+      'bg-yellow-500 text-white hover:bg-yellow-600',
       'border border-yellow-700',
-      'active:bg-yellow-800 active:border-yellow-800',
+      'active:bg-yellow-700 active:border-yellow-700',
       'focus-visible:ring-yellow-400 focus-visible:border-yellow-800',
       'disabled:bg-yellow-400 disabled:border-yelllow-400',
     ],
@@ -42,7 +42,7 @@ export const ButtonStyle = {
     ],
     ghost: [
       'text-primary-500',
-      'shadow-none',
+      '!shadow-none',
       'hover:bg-primary-50 focus-visible:ring-primary-400',
       'active:bg-primary-100 disabled:bg-primary-100',
     ],

@@ -5,7 +5,8 @@
   "exports": {
     "./button": "./src/components/button/index.ts",
     "./link": "./src/components/link/index.ts",
-    "./lib": "./src/lib/index.ts"
+    "./lib": "./src/lib/index.ts",
+    "./types": "./src/types/index.ts"
   },
   "scripts": {
     "lint": "eslint .",
